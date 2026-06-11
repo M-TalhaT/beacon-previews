@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sugar Nail Lounge — Mobile's Most-Loved Nail Spa</title>
+<meta name="description" content="A spa-like nail experience in Mobile, AL. 4.9★ across 231 reviews. Book your appointment."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..600&family=DM+Sans:opsz,wght@9..40,400..600&family=DM+Mono&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --cream:#faf5ef; --cream-2:#f4ebe2; --blush:#f0ddd9; --rose:#c1768a; --rose-deep:#a05670;
+    --plum:#4a3138; --plum-soft:#7a6168; --gold:#bf9b5f; --sage:#9aa88c;
+    --line:rgba(74,49,56,.13); --shadow:0 30px 60px -28px rgba(74,49,56,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--plum);font-family:"DM Sans",system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  .serif{font-family:"Cormorant Garamond",Georgia,serif}
+  .mono{font-family:"DM Mono",monospace;letter-spacing:.05em}
+
+  .promo{background:var(--plum);color:var(--cream);text-align:center;font-size:13.5px;padding:9px 16px;position:relative;z-index:50;font-weight:500}
+  .promo b{color:#f0c9b0}
+  .promo a{text-decoration:underline;text-underline-offset:2px;color:#f0c9b0;font-weight:600;white-space:nowrap}
+  .promo .x{position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:.6;cursor:pointer}
+
+  nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:rgba(250,245,239,.8);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand .mark{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#f3dcd2,var(--rose));display:grid;place-items:center;color:#fff;font-family:"Cormorant Garamond";font-weight:700;font-size:22px;font-style:italic;box-shadow:0 6px 16px -6px var(--rose)}
+  .brand .nm{font-family:"Cormorant Garamond";font-weight:600;font-size:25px;letter-spacing:.01em}
+  .nav-links{display:flex;gap:30px;font-size:14px;color:var(--plum-soft)}
+  .nav-links a:hover{color:var(--rose)}
+  .nav-cta{background:var(--rose);color:#fff;padding:11px 22px;border-radius:999px;font-weight:600;font-size:14px;transition:.2s;box-shadow:0 8px 20px -8px var(--rose)}
+  .nav-cta:hover{background:var(--rose-deep);transform:translateY(-1px)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  .hero{position:relative;overflow:hidden;padding:66px 0 74px}
+  .hero::before{content:"";position:absolute;width:680px;height:680px;border-radius:50%;right:-240px;top:-200px;background:radial-gradient(circle,var(--blush),transparent 65%);opacity:.7}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+  .eyebrow{font-family:"DM Mono";font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
+  h1{font-family:"Cormorant Garamond";font-weight:600;line-height:1.0;letter-spacing:-.005em;font-size:clamp(50px,9vw,98px)}
+  h1 .it{font-style:italic;color:var(--rose)}
+  .lede{font-size:clamp(16px,2.1vw,19px);color:var(--plum-soft);max-width:30em;margin:20px 0 28px}
+  .stars-badge{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);padding:11px 17px;border-radius:14px;margin-bottom:28px;box-shadow:0 10px 24px -16px rgba(74,49,56,.4)}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:17px}
+  .stars-badge .num{font-family:"Cormorant Garamond";font-weight:700;font-size:22px}
+  .stars-badge .sub{font-size:13px;color:var(--plum-soft)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .15s,background .2s;cursor:pointer;border:none}
+  .btn-primary{background:var(--rose);color:#fff;box-shadow:0 14px 28px -12px var(--rose)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--rose-deep)}
+  .btn-ghost{background:transparent;color:var(--plum);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--rose);color:var(--rose)}
+  .hero-art{position:relative;min-height:420px}
+  .photo{position:absolute;border-radius:22px;background-size:cover;background-position:center;box-shadow:var(--shadow)}
+  .photo.main{inset:0;background-image:linear-gradient(180deg,rgba(74,49,56,0),rgba(74,49,56,.18)),url("https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&q=80&auto=format&fit=crop");background-color:#e8cfc8}
+  .photo.chip{width:188px;height:140px;left:-22px;bottom:-22px;border-radius:16px;border:5px solid var(--cream);background-image:url("https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=460&q=80&auto=format&fit=crop");background-color:#d9b8c0}
+  @media(max-width:880px){.hero-art{min-height:320px}.photo.chip{width:140px;height:104px}}
+  .float{position:absolute;right:-10px;top:24px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 15px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);z-index:3}
+  .float .dot{width:9px;height:9px;border-radius:50%;background:var(--sage)}
+  .float .t{font-size:12.5px;color:var(--plum-soft);font-weight:500}
+
+  .strip{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+  .marquee{display:flex;white-space:nowrap;animation:slide 30s linear infinite}
+  .marquee span{padding:15px 0;font-family:"Cormorant Garamond";font-style:italic;font-size:21px;color:var(--plum-soft);display:flex;align-items:center;gap:30px}
+  .marquee span::after{content:"❀";color:var(--rose);margin:0 30px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  .sec{padding:84px 0}
+  .sec-head{margin-bottom:46px;max-width:640px}
+  .sec-kicker{font-family:"DM Mono";font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .sec-title{font-family:"Cormorant Garamond";font-weight:600;font-size:clamp(34px,5.4vw,56px);line-height:1.0}
+  .sec-title .it{font-style:italic;color:var(--rose)}
+
+  .svc-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:start}
+  @media(max-width:880px){.svc-grid{grid-template-columns:1fr}}
+  .svc-cat{margin-bottom:30px}
+  .svc-cat h4{font-family:"DM Mono";text-transform:uppercase;letter-spacing:.15em;font-size:12.5px;color:var(--rose);margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  .svc{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0}
+  .svc .nm{font-family:"Cormorant Garamond";font-weight:600;font-size:20px}
+  .svc .ds{font-size:13px;color:var(--plum-soft)}
+  .svc .dots{flex:1;border-bottom:1px dotted rgba(122,97,104,.4);transform:translateY(-4px)}
+  .svc .pr{font-family:"DM Mono";color:var(--plum);font-size:15px;white-space:nowrap}
+  .svc-photo{position:sticky;top:92px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .svc-photo .img{height:320px;background-size:cover;background-position:center;background-image:url("https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=640&q=80&auto=format&fit=crop");background-color:#e6c9cf}
+  .svc-photo .cap{padding:18px 20px;background:#fff}
+  .svc-photo .cap .t{font-family:"Cormorant Garamond";font-style:italic;font-size:21px}
+  .svc-photo .cap .s{font-size:13px;color:var(--plum-soft);margin-top:2px}
+
+  .book{background:linear-gradient(180deg,var(--cream),var(--blush))}
+  .book-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:760px){.book-grid{grid-template-columns:1fr}}
+  .bcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;transition:.2s;box-shadow:0 18px 40px -28px rgba(74,49,56,.4)}
+  .bcard:hover{transform:translateY(-4px)}
+  .bcard .n{font-family:"Cormorant Garamond";color:var(--rose);font-size:34px;font-weight:600;font-style:italic}
+  .bcard h3{font-family:"Cormorant Garamond";font-size:23px;font-weight:600;margin:6px 0 8px}
+  .bcard p{font-size:14px;color:var(--plum-soft)}
+  .bcard p b{color:var(--sage)}
+
+  .reviews{background:var(--cream-2)}
+  .rev-top{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-bottom:40px}
+  .rev-score{display:flex;align-items:center;gap:18px}
+  .rev-score .big{font-family:"Cormorant Garamond";font-weight:700;font-size:80px;line-height:1;color:var(--rose)}
+  .rev-score .st{color:var(--gold);font-size:20px;letter-spacing:3px}
+  .rev-score .ct{font-size:13.5px;color:var(--plum-soft);margin-top:4px}
+  .rev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.rev-cards{grid-template-columns:1fr}}
+  .rcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 18px 40px -30px rgba(74,49,56,.4)}
+  .rcard .st{color:var(--gold);letter-spacing:2px;margin-bottom:11px}
+  .rcard p{font-family:"Cormorant Garamond";font-size:19px;line-height:1.4;color:var(--plum);margin-bottom:15px}
+  .rcard .who{display:flex;align-items:center;gap:11px}
+  .rcard .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;font-size:14px}
+  .rcard .n{font-weight:600;font-size:14px}.rcard .g{font-size:12px;color:var(--plum-soft)}
+
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  @media(max-width:880px){.visit-grid{grid-template-columns:1fr}}
+  .info-row{display:flex;gap:14px;padding:17px 0;border-bottom:1px solid var(--line)}
+  .info-row .ic{font-size:18px;width:24px}
+  .info-row .k{font-family:"DM Mono";text-transform:uppercase;font-size:11px;letter-spacing:.13em;color:var(--rose);margin-bottom:3px}
+  .info-row .v{font-size:15.5px}.info-row .v small{color:var(--plum-soft)}
+  .map{border-radius:20px;border:1px solid var(--line);min-height:300px;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,var(--blush),transparent 45%),#fff;overflow:hidden}
+  .map .grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:40px 40px;opacity:.6}
+  .map .pin{text-align:center}
+  .map .pin .dot{width:16px;height:16px;border-radius:50%;background:var(--rose);margin:0 auto 12px;box-shadow:0 0 0 8px rgba(193,118,138,.2),0 0 0 18px rgba(193,118,138,.09);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 12px rgba(193,118,138,.16),0 0 0 26px rgba(193,118,138,.05)}}
+  .map .pin .t{font-family:"Cormorant Garamond";font-weight:600;font-size:22px}.map .pin .s{font-size:13px;color:var(--plum-soft);margin-top:3px}
+
+  .final{background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:#fff;text-align:center;padding:90px 0}
+  .final h2{font-family:"Cormorant Garamond";font-weight:600;font-size:clamp(38px,6vw,64px);line-height:1.0;margin-bottom:16px}
+  .final h2 .it{font-style:italic}
+  .final p{font-size:17px;max-width:33em;margin:0 auto 28px;opacity:.95}
+  .final .btn-white{background:#fff;color:var(--rose-deep);font-weight:700}
+  .final .btn-white:hover{transform:translateY(-2px)}
+  footer{background:var(--cream);text-align:center;padding:40px 0;color:var(--plum-soft);font-size:13.5px;border-top:1px solid var(--line)}
+  footer .pv{display:inline-flex;align-items:center;gap:8px;background:var(--blush);border:1px solid var(--line);color:var(--rose-deep);padding:7px 14px;border-radius:999px;margin-bottom:16px;font-weight:600}
+
+  .rise{opacity:0;transform:translateY(20px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}.d5{animation-delay:.45s}
+</style>
+</head>
+<body>
+  <div class="promo">✨ <b>Free website preview</b> made for Sugar Nail Lounge — love it? Text <b>Jake</b> at <a href="sms:+16509847838">650-984-7838</a> to make it live. <span class="x">✕</span></div>
+
+  <nav><div class="wrap nav-in">
+    <div class="brand"><div class="mark">S</div><div class="nm">Sugar Nail Lounge</div></div>
+    <div class="nav-links"><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
+    <a href="tel:+12512197931" class="nav-cta">Book Appointment</a>
+  </div></nav>
+
+  <header class="hero"><div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow rise d1">Mobile, Alabama</div>
+      <h1 class="rise d2">A little <span class="it">sugar,</span><br>a lot of shine.</h1>
+      <p class="lede rise d3">A spa-like nail lounge where you're poured a drink, sat back, and treated. Mani-pedis, full sets, and nail art by techs Mobile can't stop reviewing.</p>
+      <div class="stars-badge rise d3"><span class="stars">★★★★★</span><div><span class="num">4.9</span> <span class="sub">· 231 Google reviews</span></div></div>
+      <div class="cta-row rise d4">
+        <a href="tel:+12512197931" class="btn btn-primary">Book Now · (251) 219-7931</a>
+        <a href="#services" class="btn btn-ghost">View Services</a>
+      </div>
+    </div>
+    <div class="hero-art rise d5">
+      <div class="photo main"></div>
+      <div class="float"><span class="dot"></span><span class="t">Complimentary drinks · walk-ins welcome</span></div>
+      <div class="photo chip"></div>
+    </div>
+  </div></header>
+
+  <div class="strip"><div class="marquee">
+    <span>Gel Manicures<span></span>Luxury Pedicures<span></span>Full Sets<span></span>Nail Art<span></span>Dip Powder</span>
+    <span>Gel Manicures<span></span>Luxury Pedicures<span></span>Full Sets<span></span>Nail Art<span></span>Dip Powder</span>
+  </div></div>
+
+  <section class="sec" id="services"><div class="wrap">
+    <div class="sec-head"><div class="sec-kicker">The Menu</div><h2 class="sec-title">Treat your <span class="it">hands & feet.</span></h2></div>
+    <div class="svc-grid">
+      <div>
+        <div class="svc-cat"><h4>Hands</h4>
+          <div class="svc"><div><div class="nm">Classic Manicure</div><div class="ds">Shape, cuticle care, polish</div></div><div class="dots"></div><div class="pr">$25</div></div>
+          <div class="svc"><div><div class="nm">Gel Manicure</div><div class="ds">Long-lasting, high-shine gel</div></div><div class="dots"></div><div class="pr">$35</div></div>
+          <div class="svc"><div><div class="nm">Dip Powder Set</div><div class="ds">Durable, lightweight, gorgeous</div></div><div class="dots"></div><div class="pr">$45</div></div>
+          <div class="svc"><div><div class="nm">Full Acrylic Set</div><div class="ds">Custom length & shape</div></div><div class="dots"></div><div class="pr">$50</div></div>
+          <div class="svc"><div><div class="nm">Fills</div><div class="ds">Two-week refresh</div></div><div class="dots"></div><div class="pr">$38</div></div>
+        </div>
+        <div class="svc-cat"><h4>Feet</h4>
+          <div class="svc"><div><div class="nm">Classic Pedicure</div><div class="ds">Soak, scrub, massage, polish</div></div><div class="dots"></div><div class="pr">$35</div></div>
+          <div class="svc"><div><div class="nm">Sugar Deluxe Pedicure</div><div class="ds">Hot stones, sugar scrub, paraffin</div></div><div class="dots"></div><div class="pr">$55</div></div>
+        </div>
+        <div class="svc-cat"><h4>Extras</h4>
+          <div class="svc"><div><div class="nm">Nail Art (per nail)</div><div class="ds">From simple to statement</div></div><div class="dots"></div><div class="pr">$5+</div></div>
+          <div class="svc"><div><div class="nm">Polish Change</div><div class="ds">Hands or feet</div></div><div class="dots"></div><div class="pr">$15</div></div>
+        </div>
+      </div>
+      <div class="svc-photo"><div class="img"></div><div class="cap"><div class="t">"The most relaxing hour of my week."</div><div class="s">— a Sugar regular</div></div></div>
+    </div>
+  </div></section>
+
+  <section class="sec book"><div class="wrap">
+    <div class="sec-head"><div class="sec-kicker">Never miss a booking</div><h2 class="sec-title">Your chair, <span class="it">always full.</span></h2></div>
+    <div class="book-grid">
+      <div class="bcard"><div class="n">01</div><h3>Book 24/7 online</h3><p>Clients pick their service and time from their phone — even at midnight when they remember.</p></div>
+      <div class="bcard"><div class="n">02</div><h3>An AI front desk</h3><p>When your hands are full doing a set and the phone rings, <b>it answers, books them in, and texts you.</b> No more lost appointments.</p></div>
+      <div class="bcard"><div class="n">03</div><h3>Reviews that grow</h3><p>Every happy client gets a sweet little nudge to leave the review that keeps your 4.9 glowing.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec reviews" id="reviews"><div class="wrap">
+    <div class="rev-top"><div class="rev-score"><div class="big">4.9</div><div><div class="st">★★★★★</div><div class="ct">231 Google reviews · Mobile, AL</div></div></div></div>
+    <div class="rev-cards">
+      <div class="rcard"><div class="st">★★★★★</div><p>Hands down the best nail salon in Mobile. They offer you a drink, take their time, and my gel lasts forever. Obsessed.</p><div class="who"><div class="av" style="background:var(--rose)">AB</div><div><div class="n">Ashley B.</div><div class="g">Local Guide · 44 reviews</div></div></div></div>
+      <div class="rcard"><div class="st">★★★★★</div><p>The deluxe pedicure is heaven. Clean, gorgeous space and the nail art is unreal. Just wish booking online was a thing!</p><div class="who"><div class="av" style="background:var(--gold)">KT</div><div><div class="n">Kayla T.</div><div class="g">31 reviews</div></div></div></div>
+      <div class="rcard"><div class="st">★★★★★</div><p>I drive 25 minutes past three other salons to come here. That should tell you everything. Worth every star.</p><div class="who"><div class="av" style="background:var(--sage)">MR</div><div><div class="n">Monica R.</div><div class="g">Local Guide · 58 reviews</div></div></div></div>
+    </div>
+  </div></section>
+
+  <section class="sec" id="visit"><div class="wrap">
+    <div class="sec-head"><div class="sec-kicker">Come be pampered</div><h2 class="sec-title">Find us in <span class="it">Mobile.</span></h2></div>
+    <div class="visit-grid">
+      <div>
+        <div class="info-row"><div class="ic">📍</div><div><div class="k">Location</div><div class="v">Mobile, Alabama <small>· tap for directions</small></div></div></div>
+        <div class="info-row"><div class="ic">🕑</div><div><div class="k">Hours</div><div class="v">Mon–Sat 9:30a–7p<br><small>Sunday 12p–5p</small></div></div></div>
+        <div class="info-row"><div class="ic">📞</div><div><div class="k">Book / Call</div><div class="v">(251) 219-7931</div></div></div>
+        <div class="info-row"><div class="ic">🍷</div><div><div class="k">The experience</div><div class="v">Complimentary drinks · walk-ins welcome <small>· card & cash</small></div></div></div>
+        <div style="margin-top:26px"><a href="https://www.google.com/maps/search/Sugar+Nail+Lounge+Mobile+AL" class="btn btn-primary">Get Directions →</a></div>
+      </div>
+      <div class="map"><div class="grid-lines"></div><div class="pin"><div class="dot"></div><div class="t">Sugar Nail Lounge</div><div class="s">Mobile, AL</div></div></div>
+    </div>
+  </div></section>
+
+  <section class="final"><div class="wrap">
+    <h2>This is your salon.<br>Want it <span class="it">live?</span></h2>
+    <p>Made free for Sugar Nail Lounge — online booking, the AI front desk, and your 231 five-star reviews front and center. Live in 7 days if you love it. If not, no worries.</p>
+    <a href="sms:+16509847838" class="btn btn-white">Text Jake — 650-984-7838</a>
+  </div></section>
+
+  <footer><div class="wrap">
+    <div class="pv">✨ Free preview · not yet published</div>
+    <div>Made for <b style="color:var(--plum)">Sugar Nail Lounge</b> · Mobile, AL — by Jake · <a href="sms:+16509847838" style="color:var(--rose-deep)">650-984-7838</a></div>
+    <div style="margin-top:8px;opacity:.7">Sample design for demonstration. Services &amp; details are placeholders to be confirmed.</div>
+  </div></footer>
+
+  <script>document.querySelector('.promo .x').addEventListener('click',function(){this.parentElement.style.display='none'})</script>
+</body>
+</html>
