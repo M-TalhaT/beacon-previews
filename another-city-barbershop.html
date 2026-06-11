@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Another City Barber Shop — Johnson City's Sharpest Cuts</title>
+<meta name="description" content="Premium barbering in Johnson City, TN. 4.7★ across 304 reviews. Book your chair online." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0f0f10; --ink-2:#17171a; --panel:#1c1c20; --bone:#f3ece0; --bone-soft:#cdc6ba;
+    --brass:#c9a24b; --brass-bright:#e3bd63; --ox:#8c2f24; --teal:#2f6f6a;
+    --muted:#8c867c; --line:rgba(243,236,224,.12);
+    --shadow:0 28px 64px -24px rgba(0,0,0,.8);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--bone);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .cond{font-family:"Oswald",sans-serif}
+  .mono{font-family:"DM Mono",monospace;letter-spacing:.04em}
+
+  .promo{background:var(--brass);color:#1a1408;font-weight:600;text-align:center;font-size:13.5px;padding:9px 16px;position:relative;z-index:50}
+  .promo a{text-decoration:underline;text-underline-offset:2px;font-weight:700;white-space:nowrap}
+  .promo .x{position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:.5;font-weight:700;cursor:pointer}
+
+  nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:rgba(15,15,16,.74);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .pole{width:14px;height:40px;border-radius:7px;background:repeating-linear-gradient(45deg,var(--ox) 0 6px,var(--bone) 6px 12px,var(--teal) 12px 18px);box-shadow:0 0 0 2px var(--line)}
+  .brand .nm{font-family:"Oswald";font-weight:700;font-size:20px;letter-spacing:.06em;text-transform:uppercase}
+  .brand .nm b{color:var(--brass)}
+  .nav-links{display:flex;gap:30px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-family:"Oswald";font-weight:500;color:var(--bone-soft)}
+  .nav-links a:hover{color:var(--brass)}
+  .nav-cta{background:var(--brass);color:#1a1408;padding:11px 20px;border-radius:4px;font-family:"Oswald";font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:.2s}
+  .nav-cta:hover{background:var(--brass-bright)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;min-height:560px}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr}}
+  .hero-copy{padding:70px 0 70px;display:flex;flex-direction:column;justify-content:center}
+  .hero-copy .wrap-l{max-width:560px;margin-left:auto;padding:0 40px 0 22px}
+  @media(max-width:880px){.hero-copy .wrap-l{margin:0;padding:0 22px}}
+  .eyebrow{font-family:"DM Mono";font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--brass)}
+  h1{font-family:"Oswald";font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:.005em;font-size:clamp(46px,7.5vw,86px)}
+  h1 .ol{color:transparent;-webkit-text-stroke:1.5px var(--brass);text-stroke:1.5px var(--brass)}
+  .lede{font-size:clamp(15px,2vw,18px);color:var(--bone-soft);max-width:30em;margin:22px 0 28px}
+  .stars-badge{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--line);padding:10px 16px;border-radius:6px;margin-bottom:28px;background:rgba(243,236,224,.04)}
+  .stars{color:var(--brass);letter-spacing:2px}
+  .stars-badge .num{font-family:"Oswald";font-weight:600;font-size:18px}
+  .stars-badge .sub{font-size:13px;color:var(--muted)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:"Oswald";font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:14px;padding:14px 24px;border-radius:5px;transition:transform .15s,background .2s;cursor:pointer;border:none}
+  .btn-primary{background:var(--brass);color:#1a1408}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--brass-bright)}
+  .btn-ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--brass);color:var(--brass)}
+  .hero-photo{background-size:cover;background-position:center;position:relative;background-image:linear-gradient(100deg,var(--ink) 1%,rgba(15,15,16,.2) 40%,rgba(15,15,16,.1)),url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1000&q=80&auto=format&fit=crop");background-color:#26201a;min-height:360px}
+  .hero-photo .tag{position:absolute;left:0;bottom:34px;background:var(--ink);border:1px solid var(--line);border-left:3px solid var(--brass);padding:13px 18px}
+  .hero-photo .tag .k{font-family:"DM Mono";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+  .hero-photo .tag .v{font-family:"Oswald";font-weight:500;font-size:17px;margin-top:2px}
+
+  .strip{background:var(--ink-2);border-bottom:1px solid var(--line);overflow:hidden}
+  .marquee{display:flex;white-space:nowrap;animation:slide 26s linear infinite}
+  .marquee span{padding:14px 0;font-family:"Oswald";text-transform:uppercase;letter-spacing:.1em;font-weight:500;font-size:15px;color:var(--bone-soft);display:flex;align-items:center;gap:26px}
+  .marquee span::after{content:"✂";color:var(--brass);margin:0 26px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  .sec{padding:84px 0}
+  .sec-head{margin-bottom:46px;max-width:640px}
+  .sec-kicker{font-family:"DM Mono";font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+  .sec-title{font-family:"Oswald";font-weight:700;text-transform:uppercase;font-size:clamp(30px,4.6vw,48px);line-height:1.02}
+  .sec-title .ol{color:transparent;-webkit-text-stroke:1.2px var(--brass)}
+
+  /* services */
+  .svc-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:start}
+  @media(max-width:880px){.svc-grid{grid-template-columns:1fr}}
+  .svc{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .svc .nm{font-family:"Oswald";font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:19px}
+  .svc .ds{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .svc .pr{font-family:"Oswald";font-weight:600;font-size:20px;color:var(--brass);white-space:nowrap}
+  .svc-photo{border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+  .svc-photo .img{height:340px;background-size:cover;background-position:center;background-image:linear-gradient(180deg,rgba(15,15,16,0),rgba(15,15,16,.45)),url("https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=700&q=80&auto=format&fit=crop");background-color:#241d16}
+  .svc-photo .cap{padding:16px 18px;background:var(--panel);font-family:"Oswald";text-transform:uppercase;letter-spacing:.05em;font-size:14px;color:var(--bone-soft)}
+
+  /* booking / AI angle */
+  .book{background:linear-gradient(180deg,var(--ink),var(--panel))}
+  .book-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:760px){.book-grid{grid-template-columns:1fr}}
+  .bcard{border:1px solid var(--line);border-radius:10px;padding:28px 26px;background:rgba(243,236,224,.03);transition:.2s}
+  .bcard:hover{transform:translateY(-4px);border-color:rgba(201,162,75,.45)}
+  .bcard .n{font-family:"Oswald";color:var(--brass);font-size:30px;font-weight:600}
+  .bcard h3{font-family:"Oswald";text-transform:uppercase;letter-spacing:.04em;font-size:18px;margin:10px 0 8px}
+  .bcard p{font-size:14px;color:var(--muted)}
+  .bcard p b{color:var(--teal-bright,#5ea59d)}
+
+  /* reviews */
+  .reviews{background:var(--ink-2)}
+  .rev-top{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-bottom:42px}
+  .rev-score{display:flex;align-items:center;gap:18px}
+  .rev-score .big{font-family:"Oswald";font-weight:700;font-size:72px;line-height:1;color:var(--brass)}
+  .rev-score .st{color:var(--brass);font-size:19px;letter-spacing:3px}
+  .rev-score .ct{font-size:13.5px;color:var(--muted);margin-top:5px}
+  .rev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.rev-cards{grid-template-columns:1fr}}
+  .rcard{border:1px solid var(--line);border-radius:10px;padding:26px;background:rgba(243,236,224,.03);position:relative}
+  .rcard .st{color:var(--brass);letter-spacing:2px;margin-bottom:12px}
+  .rcard p{font-size:14.5px;color:var(--bone-soft);margin-bottom:16px}
+  .rcard .who{display:flex;align-items:center;gap:11px}
+  .rcard .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:"Oswald";font-weight:600;color:#1a1408;font-size:14px}
+  .rcard .n{font-weight:600;font-size:14px}.rcard .g{font-size:12px;color:var(--muted)}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  @media(max-width:880px){.visit-grid{grid-template-columns:1fr}}
+  .info-row{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+  .info-row .ic{font-size:18px;width:24px}
+  .info-row .k{font-family:"DM Mono";text-transform:uppercase;font-size:11px;letter-spacing:.13em;color:var(--brass);margin-bottom:3px}
+  .info-row .v{font-size:15.5px}
+  .info-row .v small{color:var(--muted)}
+  .map{border-radius:10px;border:1px solid var(--line);min-height:300px;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,rgba(201,162,75,.1),transparent 42%),linear-gradient(135deg,#1b1b1f,#121214)}
+  .map .grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:38px 38px;opacity:.45}
+  .map .pin .dot{width:16px;height:16px;border-radius:50%;background:var(--brass);margin:0 auto 12px;box-shadow:0 0 0 8px rgba(201,162,75,.22),0 0 0 18px rgba(201,162,75,.1);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 12px rgba(201,162,75,.18),0 0 0 26px rgba(201,162,75,.05)}}
+  .map .pin{text-align:center}.map .pin .t{font-family:"Oswald";font-weight:600;text-transform:uppercase;font-size:18px}.map .pin .s{font-size:13px;color:var(--muted);margin-top:3px}
+
+  .final{background:var(--brass);color:#1a1408;text-align:center;padding:88px 0}
+  .final h2{font-family:"Oswald";font-weight:700;text-transform:uppercase;font-size:clamp(32px,5.2vw,56px);line-height:1.0;margin-bottom:16px}
+  .final p{font-size:16.5px;max-width:33em;margin:0 auto 28px;opacity:.85}
+  .final .btn-dark{background:#1a1408;color:var(--brass-bright)}
+  .final .btn-dark:hover{transform:translateY(-2px)}
+  footer{background:var(--ink);text-align:center;padding:38px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+  footer .pv{display:inline-flex;align-items:center;gap:8px;background:rgba(201,162,75,.1);border:1px solid rgba(201,162,75,.3);color:var(--brass);padding:7px 14px;border-radius:999px;margin-bottom:16px;font-family:"Oswald";text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+
+  .rise{opacity:0;transform:translateY(20px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}
+</style>
+</head>
+<body>
+  <div class="promo">✂ <b>Free website preview</b> built for Another City Barber Shop — like it? Text <b>Jake</b> at <a href="sms:+16509847838">650-984-7838</a> to make it live. <span class="x">✕</span></div>
+
+  <nav><div class="wrap nav-in">
+    <div class="brand"><div class="pole"></div><div class="nm">Another City <b>Barber Shop</b></div></div>
+    <div class="nav-links"><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
+    <a href="tel:+14235346933" class="nav-cta">Book a Chair</a>
+  </div></nav>
+
+  <header class="hero"><div class="hero-grid">
+    <div class="hero-copy"><div class="wrap-l">
+      <div class="eyebrow rise d1">Johnson City, Tennessee</div>
+      <h1 class="rise d2">Sharp cuts.<br><span class="ol">Straight talk.</span></h1>
+      <p class="lede rise d3">Classic barbering with a modern edge. Skin fades, beard work, hot-towel shaves — by barbers your neighbors already swear by.</p>
+      <div class="stars-badge rise d3"><span class="stars">★★★★★</span><div><span class="num">4.7</span> <span class="sub">· 304 Google reviews</span></div></div>
+      <div class="cta-row rise d4">
+        <a href="tel:+14235346933" class="btn btn-primary">Book Now · (423) 534-6933</a>
+        <a href="#services" class="btn btn-ghost">See Services</a>
+      </div>
+    </div></div>
+    <div class="hero-photo rise d3"><div class="tag"><div class="k">Walk-ins</div><div class="v">Welcome — or book ahead</div></div></div>
+  </div></header>
+
+  <div class="strip"><div class="marquee">
+    <span>Skin Fades<span></span>Beard Trims<span></span>Hot Towel Shaves<span></span>Kids Cuts<span></span>Line-ups</span>
+    <span>Skin Fades<span></span>Beard Trims<span></span>Hot Towel Shaves<span></span>Kids Cuts<span></span>Line-ups</span>
+  </div></div>
+
+  <section class="sec" id="services"><div class="wrap">
+    <div class="sec-head"><div class="sec-kicker">The Services</div><h2 class="sec-title">Dialed in. <span class="ol">Every chair.</span></h2></div>
+    <div class="svc-grid">
+      <div>
+        <div class="svc"><div><div class="nm">Signature Haircut</div><div class="ds">Consultation, cut, style, hot-towel finish</div></div><div class="pr">$30</div></div>
+        <div class="svc"><div><div class="nm">Skin Fade / Taper</div><div class="ds">Precision blend, razor-sharp edges</div></div><div class="pr">$32</div></div>
+        <div class="svc"><div><div class="nm">Cut + Beard Combo</div><div class="ds">Full cut and beard sculpt</div></div><div class="pr">$45</div></div>
+        <div class="svc"><div><div class="nm">Beard Trim & Shape</div><div class="ds">Lined up, conditioned, hot towel</div></div><div class="pr">$20</div></div>
+        <div class="svc"><div><div class="nm">Hot Towel Straight Razor Shave</div><div class="ds">The full traditional experience</div></div><div class="pr">$35</div></div>
+        <div class="svc"><div><div class="nm">Kids Cut (12 & under)</div><div class="ds">Patient, clean, quick</div></div><div class="pr">$22</div></div>
+        <div class="svc"><div><div class="nm">Line-Up / Edge-Up</div><div class="ds">Crisp hairline touch-up</div></div><div class="pr">$15</div></div>
+      </div>
+      <div class="svc-photo"><div class="img"></div><div class="cap">Where Johnson City gets right.</div></div>
+    </div>
+  </div></section>
+
+  <section class="sec book"><div class="wrap">
+    <div class="sec-head"><div class="sec-kicker">Never miss a client</div><h2 class="sec-title">Booked solid, <span class="ol">even mid-cut.</span></h2></div>
+    <div class="book-grid">
+      <div class="bcard"><div class="n">01</div><h3>Book online 24/7</h3><p>Clients pick their barber and time from their phone — no phone tag, no missed texts.</p></div>
+      <div class="bcard"><div class="n">02</div><h3>The AI front desk</h3><p>When you're mid-fade and the phone rings, <b>it answers, books the appointment, and texts you a summary.</b> You never lose a walk-in to voicemail again.</p></div>
+      <div class="bcard"><div class="n">03</div><h3>Reviews on autopilot</h3><p>Happy client leaves the chair → a friendly text invites the review that keeps your 4.7 climbing.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec reviews" id="reviews"><div class="wrap">
+    <div class="rev-top">
+      <div class="rev-score"><div class="big">4.7</div><div><div class="st">★★★★★</div><div class="ct">304 Google reviews · Johnson City, TN</div></div></div>
+    </div>
+    <div class="rev-cards">
+      <div class="rcard"><div class="st">★★★★★</div><p>Best barbershop in Johnson City, period. My fade is always perfect and the vibe is unmatched. Been coming for two years.</p><div class="who"><div class="av" style="background:var(--brass)">TC</div><div><div class="n">Tyler C.</div><div class="g">Local Guide · 33 reviews</div></div></div></div>
+      <div class="rcard"><div class="st">★★★★★</div><p>These guys are real barbers. Hot towel shave is worth every penny. Only thing missing was an easy way to book — glad to see that changing.</p><div class="who"><div class="av" style="background:var(--ox)">DW</div><div><div class="n">Devon W.</div><div class="g">19 reviews</div></div></div></div>
+      <div class="rcard"><div class="st">★★★★★</div><p>Took my son and we both got cleaned up. Patient with the little man, sharp with me. This is our shop now.</p><div class="who"><div class="av" style="background:var(--teal)">RJ</div><div><div class="n">Ramon J.</div><div class="g">Local Guide · 52 reviews</div></div></div></div>
+    </div>
+  </div></section>
+
+  <section class="sec" id="visit"><div class="wrap">
+    <div class="sec-head"><div class="sec-kicker">Pull up a chair</div><h2 class="sec-title">Find the <span class="ol">shop.</span></h2></div>
+    <div class="visit-grid">
+      <div>
+        <div class="info-row"><div class="ic">📍</div><div><div class="k">Location</div><div class="v">Johnson City, Tennessee <small>· tap for directions</small></div></div></div>
+        <div class="info-row"><div class="ic">🕑</div><div><div class="k">Hours</div><div class="v">Tue–Fri 9a–7p · Sat 9a–4p<br><small>Closed Sun & Mon</small></div></div></div>
+        <div class="info-row"><div class="ic">📞</div><div><div class="k">Book / Call</div><div class="v">(423) 534-6933</div></div></div>
+        <div class="info-row"><div class="ic">💈</div><div><div class="k">Good to know</div><div class="v">Walk-ins welcome · Appointments preferred <small>· cash & card</small></div></div></div>
+        <div style="margin-top:26px"><a href="https://www.google.com/maps/search/Another+City+Barber+Shop+Johnson+City+TN" class="btn btn-primary">Get Directions →</a></div>
+      </div>
+      <div class="map"><div class="grid-lines"></div><div class="pin"><div class="dot"></div><div class="t">Another City Barber Shop</div><div class="s">Johnson City, TN</div></div></div>
+    </div>
+  </div></section>
+
+  <section class="final"><div class="wrap">
+    <h2>This is your shop.<br>Want it live?</h2>
+    <p>Built free for Another City Barber Shop — online booking, the AI front desk, your 304 reviews up front. Live in 7 days if you love it. If not, no hard feelings.</p>
+    <a href="sms:+16509847838" class="btn btn-dark">Text Jake — 650-984-7838</a>
+  </div></section>
+
+  <footer><div class="wrap">
+    <div class="pv">✂ Free preview · not yet published</div>
+    <div>Built for <b style="color:var(--bone-soft)">Another City Barber Shop</b> · Johnson City, TN — by Jake · <a href="sms:+16509847838" style="color:var(--brass)">650-984-7838</a></div>
+    <div style="margin-top:8px;opacity:.6">Sample design for demonstration. Services &amp; details are placeholders to be confirmed.</div>
+  </div></footer>
+
+  <script>
+    document.querySelector('.promo .x').addEventListener('click',function(){this.parentElement.style.display='none'});
+  </script>
+</body>
+</html>
