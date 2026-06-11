@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Los Gueros Taqueria — Tyler's Most-Loved Street Tacos</title>
+<meta name="description" content="Authentic Mexican street tacos in Tyler, Texas. 4.5★ across 356 reviews. Order direct, skip the fees." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#16100c; --ink-2:#221812; --cream:#f8efdd; --cream-soft:#efe2c8;
+    --terra:#d8542a; --terra-deep:#b23c18; --marigold:#f2a31c; --lime:#9bbb3e;
+    --muted:#b8a489; --line:rgba(248,239,221,.14);
+    --maxw:1180px;
+    --shadow:0 30px 70px -25px rgba(0,0,0,.7);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink); color:var(--cream);
+    font-family:"DM Sans",system-ui,sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  /* grain overlay */
+  body::after{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .serif{font-family:"Fraunces",Georgia,serif}
+  .mono{font-family:"DM Mono",monospace;letter-spacing:.04em}
+
+  /* ---- sales banner ---- */
+  .promo{
+    background:linear-gradient(90deg,var(--terra),var(--marigold));
+    color:#2a1505; font-weight:600; text-align:center; font-size:13.5px;
+    padding:9px 16px; position:relative; z-index:50; letter-spacing:.01em;
+  }
+  .promo b{font-weight:700}
+  .promo a{ text-decoration:underline; text-underline-offset:2px; white-space:nowrap }
+  .promo .x{position:absolute; right:14px; top:50%; transform:translateY(-50%); opacity:.55; font-weight:700}
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky; top:0; z-index:40;
+    backdrop-filter:blur(12px); background:rgba(22,16,12,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700}
+  .brand .mark{
+    width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+    background:radial-gradient(circle at 30% 25%,var(--marigold),var(--terra));
+    color:#2a1505;font-family:"Fraunces";font-weight:900;font-size:20px;box-shadow:0 6px 18px -6px var(--terra)
+  }
+  .brand .nm{font-family:"Fraunces";font-weight:800;font-size:19px;letter-spacing:.01em}
+  .nav-links{display:flex;gap:30px;font-size:14.5px;color:var(--cream-soft)}
+  .nav-links a:hover{color:var(--marigold)}
+  .nav-cta{
+    background:var(--terra);color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;
+    transition:transform .15s ease, background .2s; box-shadow:0 8px 22px -10px var(--terra)
+  }
+  .nav-cta:hover{transform:translateY(-1px);background:var(--terra-deep)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* ---- hero ---- */
+  .hero{position:relative;padding:62px 0 70px; overflow:hidden}
+  .hero-glow{
+    position:absolute; width:760px;height:760px; right:-260px; top:-260px; border-radius:50%;
+    background:radial-gradient(circle,rgba(242,163,28,.20),transparent 62%); pointer-events:none;
+  }
+  .hero-glow.two{left:-300px;top:200px;right:auto;background:radial-gradient(circle,rgba(216,84,42,.18),transparent 62%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:34px}}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;color:var(--marigold);
+    font-family:"DM Mono";font-size:12.5px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:22px
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--marigold)}
+  h1.title{
+    font-family:"Fraunces";font-weight:900;line-height:.92;letter-spacing:-.015em;
+    font-size:clamp(52px,9vw,104px); color:var(--cream);
+  }
+  h1.title .em{color:var(--terra);font-style:italic;display:inline-block}
+  .lede{font-size:clamp(16px,2.1vw,19px);color:var(--cream-soft);max-width:30em;margin:22px 0 30px}
+  .lede b{color:var(--cream);font-weight:600}
+  .stars-badge{
+    display:inline-flex;align-items:center;gap:13px;background:rgba(248,239,221,.06);
+    border:1px solid var(--line);padding:11px 17px;border-radius:14px;margin-bottom:30px
+  }
+  .stars{color:var(--marigold);font-size:18px;letter-spacing:2px}
+  .stars-badge .num{font-family:"Fraunces";font-weight:800;font-size:19px}
+  .stars-badge .sub{font-size:13px;color:var(--muted)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:13px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:999px;
+    font-weight:600;font-size:15px;transition:transform .15s ease,box-shadow .2s,background .2s;cursor:pointer;border:none
+  }
+  .btn-primary{background:var(--terra);color:#fff;box-shadow:0 14px 30px -12px var(--terra)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--terra-deep)}
+  .btn-ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--marigold);color:var(--marigold)}
+
+  /* hero photo stack */
+  .hero-art{position:relative;min-height:430px}
+  .photo{
+    position:absolute;border-radius:20px;background-size:cover;background-position:center;
+    box-shadow:var(--shadow);border:1px solid rgba(248,239,221,.08)
+  }
+  .photo.main{
+    inset:0; background-image:linear-gradient(180deg,rgba(22,16,12,.05),rgba(22,16,12,.45)),url("https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?w=900&q=80&auto=format&fit=crop");
+    background-color:#3a2417;
+  }
+  .photo.chip{
+    width:200px;height:148px;right:-18px;bottom:-26px;border-radius:16px;
+    background-image:linear-gradient(180deg,rgba(22,16,12,.0),rgba(22,16,12,.35)),url("https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&q=80&auto=format&fit=crop");
+    background-color:#5a3a1c;border-width:3px;border-color:var(--ink)
+  }
+  @media(max-width:880px){.hero-art{min-height:330px} .photo.chip{width:150px;height:112px;right:-6px}}
+  .floating-tag{
+    position:absolute;left:-14px;top:26px;background:var(--ink-2);border:1px solid var(--line);
+    border-radius:13px;padding:11px 15px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);z-index:3
+  }
+  .floating-tag .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .floating-tag .t{font-size:12.5px;color:var(--cream-soft);font-weight:500}
+
+  /* marquee strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2);overflow:hidden}
+  .marquee{display:flex;gap:0;white-space:nowrap;animation:slide 28s linear infinite}
+  .marquee span{padding:15px 30px;font-family:"Fraunces";font-style:italic;font-weight:600;font-size:18px;color:var(--cream-soft);display:flex;align-items:center;gap:30px}
+  .marquee span::after{content:"✦";color:var(--terra);font-style:normal}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* section heading */
+  .sec{padding:84px 0}
+  .sec-head{margin-bottom:46px}
+  .sec-kicker{font-family:"DM Mono";font-size:12.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--terra);margin-bottom:14px}
+  .sec-title{font-family:"Fraunces";font-weight:800;font-size:clamp(32px,5vw,50px);line-height:1.02;letter-spacing:-.01em}
+  .sec-title .it{font-style:italic;color:var(--marigold)}
+
+  /* value strip */
+  .value{background:linear-gradient(180deg,var(--ink),var(--ink-2));}
+  .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:760px){.value-grid{grid-template-columns:1fr;gap:16px}}
+  .vcard{background:rgba(248,239,221,.04);border:1px solid var(--line);border-radius:18px;padding:28px 26px;transition:transform .2s,border-color .2s}
+  .vcard:hover{transform:translateY(-4px);border-color:rgba(242,163,28,.4)}
+  .vcard .ic{font-size:26px;margin-bottom:14px}
+  .vcard h3{font-family:"Fraunces";font-weight:700;font-size:20px;margin-bottom:8px}
+  .vcard p{font-size:14.5px;color:var(--muted)}
+  .vcard .pop{color:var(--lime);font-weight:600}
+
+  /* menu */
+  .menu-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:start}
+  @media(max-width:880px){.menu-grid{grid-template-columns:1fr}}
+  .menu-cat{margin-bottom:34px}
+  .menu-cat h4{font-family:"DM Mono";text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:var(--marigold);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .item{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0}
+  .item .l .nm{font-family:"Fraunces";font-weight:600;font-size:18px}
+  .item .l .ds{font-size:13.5px;color:var(--muted)}
+  .item .dots{flex:1;border-bottom:1px dotted rgba(184,164,137,.4);transform:translateY(-4px)}
+  .item .pr{font-family:"DM Mono";font-weight:500;color:var(--cream);font-size:15px;white-space:nowrap}
+  .item .pr.hot::after{content:" 🔥"}
+  .menu-photo{position:sticky;top:90px;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .menu-photo .img{height:300px;background-size:cover;background-position:center;background-image:linear-gradient(180deg,rgba(22,16,12,0),rgba(22,16,12,.5)),url("https://images.unsplash.com/photo-1611250188496-e966043a0629?w=700&q=80&auto=format&fit=crop");background-color:#46291a}
+  .menu-photo .cap{padding:18px 20px;background:var(--ink-2)}
+  .menu-photo .cap .t{font-family:"Fraunces";font-style:italic;font-weight:600;font-size:18px}
+  .menu-photo .cap .s{font-size:13px;color:var(--muted);margin-top:3px}
+
+  /* reviews */
+  .reviews{background:var(--ink-2)}
+  .rev-top{display:flex;align-items:center;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+  .rev-score{display:flex;align-items:center;gap:20px}
+  .rev-score .big{font-family:"Fraunces";font-weight:900;font-size:74px;line-height:1;color:var(--marigold)}
+  .rev-score .meta .st{color:var(--marigold);font-size:20px;letter-spacing:3px}
+  .rev-score .meta .ct{font-size:14px;color:var(--muted);margin-top:5px}
+  .rev-badge{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--cream-soft);background:rgba(248,239,221,.05);border:1px solid var(--line);padding:10px 16px;border-radius:12px}
+  .rev-badge svg{width:18px;height:18px}
+  .rev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:880px){.rev-cards{grid-template-columns:1fr}}
+  .rcard{background:rgba(248,239,221,.04);border:1px solid var(--line);border-radius:18px;padding:26px;position:relative}
+  .rcard .q{font-family:"Fraunces";font-size:60px;line-height:.6;color:var(--terra);opacity:.45;position:absolute;top:18px;right:22px}
+  .rcard .st{color:var(--marigold);letter-spacing:2px;margin-bottom:12px}
+  .rcard p{font-size:15px;color:var(--cream-soft);margin-bottom:16px}
+  .rcard .who{display:flex;align-items:center;gap:11px}
+  .rcard .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#2a1505;font-size:14px}
+  .rcard .who .n{font-weight:600;font-size:14px}
+  .rcard .who .g{font-size:12px;color:var(--muted)}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:stretch}
+  @media(max-width:880px){.visit-grid{grid-template-columns:1fr}}
+  .info-row{display:flex;gap:15px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .info-row .ic{font-size:20px;width:26px}
+  .info-row .k{font-family:"DM Mono";text-transform:uppercase;font-size:11.5px;letter-spacing:.14em;color:var(--marigold);margin-bottom:4px}
+  .info-row .v{font-size:16px;color:var(--cream)}
+  .info-row .v small{color:var(--muted)}
+  .map{border-radius:20px;overflow:hidden;border:1px solid var(--line);min-height:320px;position:relative;background:
+    radial-gradient(circle at 30% 30%,rgba(242,163,28,.12),transparent 40%),
+    linear-gradient(135deg,#241a13,#191210);display:grid;place-items:center}
+  .map .pin{text-align:center}
+  .map .pin .dot{width:18px;height:18px;border-radius:50%;background:var(--terra);margin:0 auto 12px;box-shadow:0 0 0 8px rgba(216,84,42,.25),0 0 0 18px rgba(216,84,42,.12);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 12px rgba(216,84,42,.2),0 0 0 26px rgba(216,84,42,.06)}}
+  .map .pin .t{font-family:"Fraunces";font-weight:700;font-size:20px}
+  .map .pin .s{font-size:13px;color:var(--muted);margin-top:4px}
+  .map .grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:40px 40px;opacity:.5}
+
+  /* final CTA / footer */
+  .final{background:linear-gradient(135deg,var(--terra),var(--terra-deep));color:#fff;text-align:center;padding:90px 0}
+  .final h2{font-family:"Fraunces";font-weight:900;font-size:clamp(34px,5.5vw,58px);line-height:1.02;letter-spacing:-.01em;margin-bottom:18px}
+  .final p{font-size:17px;max-width:34em;margin:0 auto 30px;opacity:.95}
+  .final .btn-white{background:#fff;color:var(--terra-deep);font-weight:700}
+  .final .btn-white:hover{transform:translateY(-2px)}
+  footer{background:var(--ink);text-align:center;padding:40px 0;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line)}
+  footer .pv{display:inline-flex;align-items:center;gap:8px;background:rgba(242,163,28,.1);border:1px solid rgba(242,163,28,.3);color:var(--marigold);padding:7px 14px;border-radius:999px;margin-bottom:18px;font-weight:600}
+
+  /* reveal on load */
+  .rise{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}.d5{animation-delay:.45s}
+</style>
+</head>
+<body>
+
+  <!-- SALES HOOK BANNER -->
+  <div class="promo">
+    ✨ <b>Free website preview</b> built for Los Gueros Taqueria — like it? Text <b>Jake</b> at <a href="sms:+16509847838">650-984-7838</a> to make it live.
+    <span class="x">✕</span>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="wrap nav-in">
+      <div class="brand">
+        <div class="mark">LG</div>
+        <div class="nm">Los Gueros</div>
+      </div>
+      <div class="nav-links">
+        <a href="#menu">Menu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <a href="tel:+19035268226" class="nav-cta">Call to Order</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow two"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow rise d1">Tyler, Texas · Est. on flavor</span>
+        <h1 class="title rise d2">Tyler's most-<span class="em">loved</span> street tacos.</h1>
+        <p class="lede rise d3">Hand-pressed tortillas, marinated-all-day meats, and salsas made from scratch. <b>The tacos people drive across town for</b> — now finally somewhere to find us online.</p>
+        <div class="stars-badge rise d3">
+          <span class="stars">★★★★★</span>
+          <div>
+            <span class="num">4.5</span> <span class="sub">· 356 Google reviews</span>
+          </div>
+        </div>
+        <div class="cta-row rise d4">
+          <a href="tel:+19035268226" class="btn btn-primary">📞 Order Now · (903) 526-8226</a>
+          <a href="#menu" class="btn btn-ghost">View the Menu</a>
+          <a href="#visit" class="btn btn-ghost">Get Directions</a>
+        </div>
+      </div>
+      <div class="hero-art rise d5">
+        <div class="photo main"></div>
+        <div class="floating-tag">
+          <span class="dot"></span>
+          <span class="t">Open now · til 9pm</span>
+        </div>
+        <div class="photo chip"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="strip">
+    <div class="marquee">
+      <span>Al Pastor<span>Carne Asada</span>Barbacoa<span>Hand-made Tortillas</span>Fresh Salsa</span>
+      <span>Al Pastor<span>Carne Asada</span>Barbacoa<span>Hand-made Tortillas</span>Fresh Salsa</span>
+    </div>
+  </div>
+
+  <!-- VALUE / ORDER DIRECT -->
+  <section class="sec value">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">Why order direct</div>
+        <h2 class="sec-title">Keep your tacos <span class="it">— and your margins.</span></h2>
+      </div>
+      <div class="value-grid">
+        <div class="vcard">
+          <div class="ic">💸</div>
+          <h3>Skip the 30% cut</h3>
+          <p>Delivery apps skim up to <span class="pop">30% of every order</span>. Order direct from us and that money stays in Tyler — with the cooks who earned it.</p>
+        </div>
+        <div class="vcard">
+          <div class="ic">📱</div>
+          <h3>Found in one tap</h3>
+          <p>When a neighbor hears about Los Gueros and Googles us at 8pm, they land <span class="pop">here</span> — menu, hours, and a call button — not a dead end.</p>
+        </div>
+        <div class="vcard">
+          <div class="ic">⭐</div>
+          <h3>356 reasons to trust us</h3>
+          <p>A <span class="pop">4.5-star</span> reputation that took years to build, finally showing up the moment someone's deciding where to eat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="sec" id="menu">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">The Menu</div>
+        <h2 class="sec-title">Made fresh, <span class="it">priced honest.</span></h2>
+      </div>
+      <div class="menu-grid">
+        <div>
+          <div class="menu-cat">
+            <h4>Street Tacos · 3 for $9</h4>
+            <div class="item"><div class="l"><div class="nm">Al Pastor</div><div class="ds">Marinated pork, pineapple, onion, cilantro</div></div><div class="dots"></div><div class="pr hot">$3.25</div></div>
+            <div class="item"><div class="l"><div class="nm">Carne Asada</div><div class="ds">Mesquite-grilled steak, fresh lime</div></div><div class="dots"></div><div class="pr">$3.75</div></div>
+            <div class="item"><div class="l"><div class="nm">Barbacoa</div><div class="ds">Slow-cooked beef, salsa roja</div></div><div class="dots"></div><div class="pr">$3.75</div></div>
+            <div class="item"><div class="l"><div class="nm">Pollo Asado</div><div class="ds">Citrus-marinated grilled chicken</div></div><div class="dots"></div><div class="pr">$3.25</div></div>
+            <div class="item"><div class="l"><div class="nm">Chorizo</div><div class="ds">House-made spiced sausage, queso fresco</div></div><div class="dots"></div><div class="pr">$3.25</div></div>
+          </div>
+          <div class="menu-cat">
+            <h4>Plates & Bigger Bites</h4>
+            <div class="item"><div class="l"><div class="nm">Quesadilla Asada</div><div class="ds">Steak, melted Oaxaca, grilled flour tortilla</div></div><div class="dots"></div><div class="pr">$9.50</div></div>
+            <div class="item"><div class="l"><div class="nm">Burrito Los Gueros</div><div class="ds">Choice of meat, rice, beans, salsa, the works</div></div><div class="dots"></div><div class="pr hot">$10.00</div></div>
+            <div class="item"><div class="l"><div class="nm">Loaded Nachos</div><div class="ds">Carne asada, queso, pico, crema, jalapeño</div></div><div class="dots"></div><div class="pr">$11.50</div></div>
+            <div class="item"><div class="l"><div class="nm">Elote (Street Corn)</div><div class="ds">Crema, cotija, chili-lime</div></div><div class="dots"></div><div class="pr">$4.00</div></div>
+          </div>
+          <div class="menu-cat">
+            <h4>Drinks</h4>
+            <div class="item"><div class="l"><div class="nm">Horchata</div><div class="ds">House cinnamon rice milk</div></div><div class="dots"></div><div class="pr">$3.00</div></div>
+            <div class="item"><div class="l"><div class="nm">Jarritos</div><div class="ds">Mexican soda — ask for flavors</div></div><div class="dots"></div><div class="pr">$2.50</div></div>
+            <div class="item"><div class="l"><div class="nm">Agua Fresca</div><div class="ds">Jamaica · Tamarindo · Horchata</div></div><div class="dots"></div><div class="pr">$3.00</div></div>
+          </div>
+        </div>
+        <div class="menu-photo">
+          <div class="img"></div>
+          <div class="cap">
+            <div class="t">"The al pastor is unreal."</div>
+            <div class="s">— what 356 reviewers keep saying</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec reviews" id="reviews">
+    <div class="wrap">
+      <div class="rev-top">
+        <div class="rev-score">
+          <div class="big">4.5</div>
+          <div class="meta">
+            <div class="st">★★★★★</div>
+            <div class="ct">356 Google reviews · Tyler, TX</div>
+          </div>
+        </div>
+        <div class="rev-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33V22c4.78-.79 8.44-4.94 8.44-9.94Z" fill="%23f2a31c"/></svg>
+          Loved on Facebook too
+        </div>
+      </div>
+      <div class="rev-cards">
+        <div class="rcard">
+          <div class="q">"</div>
+          <div class="st">★★★★★</div>
+          <p>Best tacos in Tyler, hands down. The al pastor with that grilled pineapple is something I think about all week. Family-owned and you can taste it.</p>
+          <div class="who"><div class="av" style="background:var(--marigold)">DR</div><div><div class="n">Daniela R.</div><div class="g">Local Guide · 41 reviews</div></div></div>
+        </div>
+        <div class="rcard">
+          <div class="q">"</div>
+          <div class="st">★★★★★</div>
+          <p>Found this spot by word of mouth and now we're regulars. Real street tacos, real prices, fast and friendly. Wish they had a website so I could just order ahead!</p>
+          <div class="who"><div class="av" style="background:var(--terra)">MJ</div><div><div class="n">Marcus J.</div><div class="g">28 reviews</div></div></div>
+        </div>
+        <div class="rcard">
+          <div class="q">"</div>
+          <div class="st">★★★★★</div>
+          <p>Authentic doesn't even cover it. The barbacoa melts. Horchata is the real deal. This is the one I send every out-of-towner to.</p>
+          <div class="who"><div class="av" style="background:var(--lime)">SV</div><div><div class="n">Sofia V.</div><div class="g">Local Guide · 67 reviews</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="sec" id="visit">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">Come hungry</div>
+        <h2 class="sec-title">Find us in <span class="it">Tyler.</span></h2>
+      </div>
+      <div class="visit-grid">
+        <div>
+          <div class="info-row"><div class="ic">📍</div><div><div class="k">Location</div><div class="v">Tyler, Texas <small>· tap below for directions</small></div></div></div>
+          <div class="info-row"><div class="ic">🕑</div><div><div class="k">Hours</div><div class="v">Mon–Thu 10a–9p · Fri–Sat 10a–10p<br><small>Sunday 11a–8p</small></div></div></div>
+          <div class="info-row"><div class="ic">📞</div><div><div class="k">Call to order</div><div class="v">(903) 526-8226</div></div></div>
+          <div class="info-row"><div class="ic">🌮</div><div><div class="k">Good to know</div><div class="v">Dine-in · Takeout · Catering <small>· cash & card</small></div></div></div>
+          <div style="margin-top:28px"><a href="https://www.google.com/maps/search/Los+Gueros+Taqueria+Tyler+TX" class="btn btn-primary">Get Directions →</a></div>
+        </div>
+        <div class="map">
+          <div class="grid-lines"></div>
+          <div class="pin">
+            <div class="dot"></div>
+            <div class="t">Los Gueros Taqueria</div>
+            <div class="s">Tyler, TX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap">
+      <h2>Andrew — this is your shop.<br>Want it live?</h2>
+      <p>This whole site was built for free, just for Los Gueros. Reviews, menu, order button — ready to go live in 7 days. If you love it, it's yours. If not, no hard feelings.</p>
+      <a href="sms:+16509847838" class="btn btn-white">Text Jake — 650-984-7838</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="pv">✨ Free preview · not yet published</div>
+      <div>Built for <b style="color:var(--cream-soft)">Los Gueros Taqueria</b> · Tyler, TX — by Jake · <a href="sms:+16509847838" style="color:var(--marigold)">650-984-7838</a></div>
+      <div style="margin-top:8px;opacity:.6">Sample design for demonstration. Menu &amp; details are placeholders to be confirmed.</div>
+    </div>
+  </footer>
+
+  <script>
+    // dismiss banner
+    document.querySelector('.promo .x').addEventListener('click', function(){
+      this.parentElement.style.display='none';
+    });
+    // subtle parallax on hero photo
+    var main=document.querySelector('.photo.main');
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY; if(y<700&&main){main.style.transform='translateY('+(y*0.06)+'px)';}
+    },{passive:true});
+  </script>
+</body>
+</html>
