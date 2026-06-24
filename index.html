@@ -3,65 +3,185 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Beacon, Free Website Previews</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=DM+Sans:wght@400;500;600&family=DM+Mono&display=swap" rel="stylesheet"/>
+<title>Beacon Digital · Websites, AI phone agents & automation for small business</title>
+<meta name="description" content="I build fast custom websites, human-sounding AI phone receptionists, and automations for small businesses. Built first, you pay only if you love it."/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono&display=swap" rel="stylesheet"/>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#120e0b;color:#f6eeda;font-family:"DM Sans",sans-serif;line-height:1.6;padding:0 22px}
-  .wrap{max-width:900px;margin:0 auto;padding:80px 0 60px}
-  .kick{font-family:"DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:#f2a31c;margin-bottom:18px}
-  h1{font-family:"Fraunces",serif;font-weight:800;font-size:clamp(34px,6vw,58px);line-height:1.02;letter-spacing:-.01em;margin-bottom:16px}
-  h1 .it{font-style:italic;color:#d8542a}
-  .sub{color:#b8a489;max-width:34em;margin-bottom:48px;font-size:17px}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  @media(max-width:680px){.grid{grid-template-columns:1fr}}
-  a.card{display:block;border:1px solid rgba(246,238,218,.14);border-radius:16px;padding:28px;text-decoration:none;color:inherit;background:rgba(246,238,218,.03);transition:.2s}
+  :root{--bg:#120e0b;--cream:#f6eeda;--cream2:#b8a489;--marigold:#f2a31c;--rust:#d8542a;--olive:#8fb339;--line:rgba(246,238,218,.14)}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.6;padding:0 22px}
+  .wrap{max-width:960px;margin:0 auto}
+  .kick{font-family:"DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:var(--marigold)}
+  h1{font-family:"Fraunces",serif;font-weight:800;font-size:clamp(36px,6.4vw,64px);line-height:1.02;letter-spacing:-.01em;margin:16px 0}
+  h1 .it{font-style:italic;color:var(--rust)}
+  .sub{color:var(--cream2);max-width:36em;font-size:18px}
+  .btn{display:inline-block;font-weight:700;font-size:15px;text-decoration:none;border-radius:12px;padding:14px 22px;transition:.18s}
+  .btn-p{background:var(--marigold);color:#1c1208}
+  .btn-p:hover{transform:translateY(-2px);background:#ffb733}
+  .btn-g{border:1px solid var(--line);color:var(--cream)}
+  .btn-g:hover{border-color:var(--marigold)}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+  section{padding:62px 0;border-top:1px solid rgba(246,238,218,.08)}
+  .hero{padding:84px 0 66px;border-top:none}
+  .sec-kick{font-family:"DM Mono",monospace;letter-spacing:.18em;text-transform:uppercase;font-size:11px;color:var(--olive);margin-bottom:14px}
+  h2{font-family:"Fraunces",serif;font-weight:700;font-size:clamp(26px,4vw,40px);line-height:1.08;margin-bottom:10px}
+  .lead{color:var(--cream2);max-width:34em;margin-bottom:34px;font-size:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:720px){.grid3,.grid2{grid-template-columns:1fr}}
+  .svc{border:1px solid var(--line);border-radius:16px;padding:26px;background:rgba(246,238,218,.03)}
+  .svc .n{font-family:"DM Mono",monospace;color:var(--marigold);font-size:13px;margin-bottom:12px}
+  .svc h3{font-family:"Fraunces",serif;font-weight:600;font-size:21px;margin-bottom:8px}
+  .svc p{color:var(--cream2);font-size:15px}
+  a.card{display:block;border:1px solid var(--line);border-radius:16px;padding:26px;text-decoration:none;color:inherit;background:rgba(246,238,218,.03);transition:.2s}
   a.card:hover{transform:translateY(-4px);border-color:rgba(242,163,28,.5);background:rgba(246,238,218,.06)}
-  .card .tag{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8fb339;margin-bottom:12px}
-  .card h2{font-family:"Fraunces",serif;font-weight:700;font-size:24px;margin-bottom:6px}
-  .card .meta{color:#b8a489;font-size:14px}
-  .card .go{margin-top:18px;color:#f2a31c;font-weight:600;font-size:14px}
-  footer{color:#6f6453;font-size:13px;margin-top:54px;border-top:1px solid rgba(246,238,218,.1);padding-top:22px}
+  .card .tag{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);margin-bottom:10px}
+  .card h3{font-family:"Fraunces",serif;font-weight:700;font-size:22px;margin-bottom:5px}
+  .card .meta{color:var(--cream2);font-size:14px}
+  .card .go{margin-top:16px;color:var(--marigold);font-weight:600;font-size:14px}
+  .proof{border:1px solid var(--line);border-radius:18px;padding:34px;background:linear-gradient(180deg,rgba(242,163,28,.06),rgba(246,238,218,.02))}
+  .proof ul{list-style:none;margin-top:18px;display:grid;gap:12px}
+  .proof li{padding-left:26px;position:relative;color:var(--cream2)}
+  .proof li:before{content:"→";position:absolute;left:0;color:var(--marigold);font-weight:700}
+  .offer-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  @media(max-width:720px){.offer-row{grid-template-columns:1fr}}
+  .step{border:1px solid var(--line);border-radius:14px;padding:22px}
+  .step .b{font-family:"Fraunces",serif;font-size:30px;color:var(--rust);font-weight:800;line-height:1}
+  .step h4{margin:10px 0 6px;font-size:17px}
+  .step p{color:var(--cream2);font-size:14px}
+  footer{padding:46px 0 64px;color:#6f6453;font-size:14px;border-top:1px solid rgba(246,238,218,.1);margin-top:10px}
+  footer a{color:var(--marigold);text-decoration:none}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="kick">Beacon · Web Design</div>
-    <h1>Free previews,<br><span class="it">built before you pay.</span></h1>
-    <p class="sub">Real, custom homepages for local businesses, designed first, paid for only if you love them. Tap one to see a live example.</p>
-    <div class="grid">
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kick">Beacon Digital · Websites · AI · Automation</div>
+    <h1>I build the website, the AI<br>that answers your phone,<br><span class="it">and the busywork away.</span></h1>
+    <p class="sub">Fast custom sites, a human-sounding AI receptionist that books jobs around the clock, and automations that save you hours. Built for small businesses that are too busy doing the work to chase the tech.</p>
+    <div class="cta-row">
+      <a class="btn btn-p" href="https://cal.com/beacondigital/15min">Book a free 15-minute call</a>
+      <a class="btn btn-g" href="#work">See real sites I built</a>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="sec-kick">What I do</div>
+    <h2>Three things, done properly.</h2>
+    <p class="lead">Pick one or stack them. Most clients start with a website, then add the AI phone agent once they see calls turning into booked jobs.</p>
+    <div class="grid3">
+      <div class="svc">
+        <div class="n">01</div>
+        <h3>Websites</h3>
+        <p>A clean, fast, mobile-first site that makes you look as good as your reviews. Built in days, not months, with the booking or quote button right up front.</p>
+      </div>
+      <div class="svc">
+        <div class="n">02</div>
+        <h3>AI phone receptionist</h3>
+        <p>A voice agent that answers every call 24/7, sounds genuinely human, captures the lead, books the appointment, and texts you the details. You stop losing money to voicemail.</p>
+      </div>
+      <div class="svc">
+        <div class="n">03</div>
+        <h3>Automation & custom dev</h3>
+        <p>Chatbots, lead follow-up, scheduling, data jobs, API work. If a task eats your day every week, I can usually take it off your plate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-kick">Proof, not promises</div>
+    <h2>I already built the AI that answers a phone like a person.</h2>
+    <div class="proof">
+      <p class="lead" style="margin-bottom:0">This isn't a plugin I resell. I built a working outbound and inbound AI voice agent from scratch, the same tech I set up for clients:</p>
+      <ul>
+        <li>Answers and holds a real back-and-forth conversation, no robotic script feel.</li>
+        <li>Knows when to wait, when to take a message, and how to capture an email or callback.</li>
+        <li>Books the meeting and hands you a clean summary, so nothing slips.</li>
+        <li>Pair it with your new site and your phone simply stops going unanswered.</li>
+      </ul>
+      <div class="cta-row" style="margin-top:26px">
+        <a class="btn btn-p" href="https://cal.com/beacondigital/15min">Hear how it would work for you</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-kick">Sample work</div>
+    <h2>Real homepages, built to win the customer.</h2>
+    <p class="lead">A few sample sites I designed and built for local businesses. Tap any one to open the live page.</p>
+    <div class="grid2">
       <a class="card" href="atlanta-pressure-washing.html">
         <div class="tag">Pressure Washing · Atlanta, GA</div>
-        <h2>Atlanta Pressure Washing</h2>
+        <h3>Atlanta Pressure Washing</h3>
         <div class="meta">Residential · Commercial · HOA</div>
-        <div class="go">View the live site →</div>
-      </a>
-      <a class="card" href="los-gueros-taqueria.html">
-        <div class="tag">Taqueria · Tyler, TX</div>
-        <h2>Los Gueros Taqueria</h2>
-        <div class="meta">4.5★ · 356 reviews</div>
         <div class="go">View the live site →</div>
       </a>
       <a class="card" href="another-city-barbershop.html">
         <div class="tag">Barbershop · Johnson City, TN</div>
-        <h2>Another City Barber Shop</h2>
-        <div class="meta">4.7★ · 304 reviews</div>
+        <h3>Another City Barber Shop</h3>
+        <div class="meta">Booking + AI front desk · 4.7★ 304 reviews</div>
         <div class="go">View the live site →</div>
       </a>
       <a class="card" href="sugar-nail-lounge.html">
         <div class="tag">Nail Salon · Mobile, AL</div>
-        <h2>Sugar Nail Lounge</h2>
-        <div class="meta">4.9★ · 231 reviews</div>
+        <h3>Sugar Nail Lounge</h3>
+        <div class="meta">24/7 booking · 4.9★ 231 reviews</div>
+        <div class="go">View the live site →</div>
+      </a>
+      <a class="card" href="southern-kutz-barbershop.html">
+        <div class="tag">Barbershop · Clarksville, TN</div>
+        <h3>Southern Kutz Barbershop</h3>
+        <div class="meta">Booking + reviews up front</div>
+        <div class="go">View the live site →</div>
+      </a>
+      <a class="card" href="los-gueros-taqueria.html">
+        <div class="tag">Taqueria · Tyler, TX</div>
+        <h3>Los Gueros Taqueria</h3>
+        <div class="meta">Menu + order direct · 4.5★ 356 reviews</div>
         <div class="go">View the live site →</div>
       </a>
       <a class="card" href="taqueria-fiesta-brava.html">
         <div class="tag">Taqueria · Spokane, WA</div>
-        <h2>Taqueria Fiesta Brava</h2>
-        <div class="meta">4.6★ · 739 reviews</div>
+        <h3>Taqueria Fiesta Brava</h3>
+        <div class="meta">Menu + order direct · 4.6★ 739 reviews</div>
         <div class="go">View the live site →</div>
       </a>
     </div>
-    <footer>Beacon Digital · websites + AI front desk for local businesses · book at cal.com/beacondigital/15min</footer>
-  </div>
+  </section>
+
+  <section>
+    <div class="sec-kick">The deal</div>
+    <h2>I build it first. You pay only if you love it.</h2>
+    <p class="lead">No big deposit, no risk. I'll build you a real sample before a dollar changes hands. If it's not better than what you have, walk away, no hard feelings.</p>
+    <div class="offer-row">
+      <div class="step">
+        <div class="b">1</div>
+        <h4>We talk for 15 minutes</h4>
+        <p>You tell me about the business and what's costing you customers. I tell you straight if I can help.</p>
+      </div>
+      <div class="step">
+        <div class="b">2</div>
+        <h4>I build a real sample</h4>
+        <p>A live page (and a demo of the AI phone agent if you want it) made for your business, not a template.</p>
+      </div>
+      <div class="step">
+        <div class="b">3</div>
+        <h4>You decide</h4>
+        <p>Love it, we make it live and set up the rest. Don't, you owe nothing and keep the ideas.</p>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-p" href="https://cal.com/beacondigital/15min">Grab a time that works for you</a>
+    </div>
+  </section>
+
+  <footer>
+    Beacon Digital · websites, AI phone agents, and automation for small business.<br>
+    Book a free 15-minute call: <a href="https://cal.com/beacondigital/15min">cal.com/beacondigital/15min</a>
+  </footer>
+
+</div>
 </body>
 </html>
